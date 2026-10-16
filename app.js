@@ -3,127 +3,233 @@ const WHATSAPP_NUMBER = "918154926777";
 const FREE_SHIPPING_THRESHOLD = 499;
 
 // ===== PRODUCT DATA =====
+// Real JP Masala catalogue — photographed retail packs from Jagdish Masala Mill,
+// Rajpardi, Jhagadia, Bharuch. Prices are indicative retail (INR) with MRP shown.
 const products = [
   {
-    id: 1, name: "Kashmiri Turmeric Powder", price: 180, mrp: 220, weight: "200g",
-    image: "images/turmeric.png", badge: "Bestseller",
-    origin: "Sourced from Lakadong, Meghalaya",
-    shortDesc: "Premium high-curcumin turmeric with deep golden color and earthy aroma.",
-    fullDesc: "Our Kashmiri Turmeric is sourced from the highlands of Meghalaya, known for the highest curcumin content in India (7-9%). Stone-ground at low temperatures to preserve natural oils and vibrant color. Perfect for curries, milk, and wellness drinks.",
-    category: "Powder", shelfLife: "12 Months", curcumin: "7-9%", grade: "A+ Premium",
+    id: 1, name: "Haldi Powder (Turmeric)",
+    badge: "Bestseller",
+    origin: "Milled fresh at Bharuch, Gujarat",
+    shortDesc: "Bright golden turmeric, pure and finely ground for everyday cooking.",
+    fullDesc: "JP Haldi Powder is milled from clean, sun-dried turmeric to a fine, free-flowing powder with a warm earthy aroma and rich golden colour. No added colour or starch — just pure haldi for daily sabji, dal, and haldi-doodh. Available in 100g, 200g and 500g packs.",
+    category: "Powder", shelfLife: "12 Months", grade: "Pure & Natural", curcumin: "3-5%",
+    image: "images/jp-turmeric.jpeg",
+    variants: [
+      { weight: "100gm", price: 55, image: "images/jp-turmeric-100g.jpeg" },
+      { weight: "200gm", price: 110, image: "images/jp-turmeric-200g.jpeg" },
+      { weight: "500gm", price: 270, image: "images/jp-turmeric-500g.jpeg" }
+    ],
     benefits: [
-      { icon: "🔥", title: "Anti-Inflammatory", desc: "Curcumin reduces inflammation naturally" },
-      { icon: "🛡️", title: "Immunity Booster", desc: "Strengthens immune response" },
-      { icon: "✨", title: "Skin Health", desc: "Promotes radiant and clear skin" },
-      { icon: "💪", title: "Antioxidant Rich", desc: "Fights free radicals in the body" }
+      { icon: "🔥", title: "Anti-Inflammatory", desc: "Curcumin soothes inflammation naturally" },
+      { icon: "🛡️", title: "Immunity Booster", desc: "A daily kitchen staple for wellness" },
+      { icon: "✨", title: "Skin Health", desc: "Traditional glow-boosting spice" },
+      { icon: "💪", title: "Antioxidant Rich", desc: "Helps fight free radicals" }
     ]
   },
   {
-    id: 2, name: "Guntur Red Chili Powder", price: 160, mrp: 190, weight: "200g",
-    image: "images/chili.png", badge: "Spicy Hot",
-    origin: "Sourced from Guntur, Andhra Pradesh",
-    shortDesc: "Fiery red chili powder with vibrant color and intense heat.",
-    fullDesc: "Made from handpicked Guntur chilies, renowned worldwide for their heat and deep red color. Our chili powder adds authentic flavor and beautiful color to every dish. No artificial dyes — the rich red comes purely from premium Guntur S17 chilies.",
-    category: "Powder", shelfLife: "12 Months", scoville: "30,000-50,000 SHU", grade: "Premium Grade",
+    id: 2, name: "Mirch Powder (Red Chilli)",
+    badge: "Spicy Hot",
+    origin: "Milled fresh at Bharuch, Gujarat",
+    shortDesc: "Bold, mouth-watering red chilli powder with fine texture and rich colour.",
+    fullDesc: "The secret behind mouth-watering, flavourful dishes. JP Mirch Powder is hygienically processed from quality dried red chillies for a clean, fiery heat and vibrant colour that lifts every curry, shaak, and masala. Pure, natural, and finely ground. Available in 100g, 200g and 500g.",
+    category: "Powder", shelfLife: "12 Months", grade: "Fine Quality", scoville: "Medium–Hot",
+    image: "images/jp-chili.jpeg",
+    variants: [
+      { weight: "100gm", price: 60, image: "images/jp-mirch-100g.jpeg" },
+      { weight: "200gm", price: 120, image: "images/jp-mirch-200g.jpeg" },
+      { weight: "500gm", price: 300, image: "images/jp-mirch-500g.jpeg" }
+    ],
     benefits: [
-      { icon: "🔥", title: "Metabolism Boost", desc: "Capsaicin accelerates metabolism" },
-      { icon: "❤️", title: "Heart Health", desc: "Supports cardiovascular health" },
+      { icon: "🔥", title: "Metabolism Boost", desc: "Capsaicin fires up metabolism" },
+      { icon: "❤️", title: "Heart Health", desc: "Supports healthy circulation" },
       { icon: "🦠", title: "Antimicrobial", desc: "Natural antibacterial properties" },
-      { icon: "😊", title: "Mood Enhancer", desc: "Triggers endorphin release" }
+      { icon: "😊", title: "Mood Enhancer", desc: "Triggers a feel-good endorphin kick" }
     ]
   },
   {
-    id: 3, name: "Rajasthani Cumin Seeds", price: 220, mrp: 260, weight: "250g",
-    image: "images/cumin.png", badge: "Organic",
-    origin: "Sourced from Jodhpur, Rajasthan",
-    shortDesc: "Aromatic whole cumin seeds with an earthy, warm flavor profile.",
-    fullDesc: "Our Rajasthani cumin seeds are harvested from the arid farms of Jodhpur. Known for their strong aroma and slightly nutty taste, these seeds are essential in Indian tempering (tadka). Each seed is cleaned, sorted, and packed to retain peak freshness.",
-    category: "Whole Spice", shelfLife: "18 Months", variety: "Gujarat 27", grade: "Export Quality",
+    id: 3, name: "Kashmiri Chilly Powder",
+    badge: "Rich Colour",
+    origin: "Milled fresh at Bharuch, Gujarat",
+    shortDesc: "Mild Kashmiri (Kumthi) chilli that gives deep red colour without harsh heat.",
+    fullDesc: "Made from Kumthi Kashmiri chillies, prized for a deep, glowing red colour and a gentle, mild heat. Perfect for tandoori marinades, gravies, and dishes where you want vibrant colour without overpowering spice. Available in 100g, 200g and 500g.",
+    category: "Powder", shelfLife: "12 Months", grade: "Premium", scoville: "Mild · Deep Colour",
+    image: "images/jp-kashmiri-chilli.jpeg",
+    variants: [
+      { weight: "100gm", price: 125, image: "images/jp-kashmiri-chilli-100g.jpeg" },
+      { weight: "200gm", price: 250, image: "images/jp-kashmiri-chilli.jpeg" },
+      { weight: "500gm", price: 625, image: "images/jp-kashmiri-chilli-500g.jpeg" }
+    ],
     benefits: [
-      { icon: "🫁", title: "Digestive Aid", desc: "Promotes healthy digestion" },
-      { icon: "🩸", title: "Iron Rich", desc: "Excellent source of dietary iron" },
-      { icon: "🧠", title: "Memory Boost", desc: "Enhances cognitive function" },
-      { icon: "🛡️", title: "Immunity", desc: "Rich in vitamins C and A" }
+      { icon: "🎨", title: "Natural Colour", desc: "Deep red without artificial dye" },
+      { icon: "🌶️", title: "Mild Heat", desc: "Flavour and colour, easy on the tongue" },
+      { icon: "🍗", title: "Perfect Marinades", desc: "Ideal for tandoori & tikka" },
+      { icon: "💪", title: "Antioxidant Rich", desc: "Loaded with natural carotenoids" }
     ]
   },
   {
-    id: 4, name: "Kerala Green Cardamom", price: 650, mrp: 780, weight: "50g",
-    image: "images/cardamom.png", badge: "Premium",
-    origin: "Sourced from Idukki, Kerala",
-    shortDesc: "The Queen of Spices — intensely aromatic green cardamom pods.",
-    fullDesc: "Handpicked from the lush hills of Idukki, Kerala, our green cardamom is the finest 8mm bold grade. Each pod is plump, vibrantly green, and bursting with aromatic seeds. Perfect for chai, biryani, desserts, and traditional Ayurvedic remedies.",
-    category: "Whole Spice", shelfLife: "12 Months", size: "8mm Bold", grade: "AGM Premium",
+    id: 4, name: "Dhaniya Jeera Powder",
+    badge: "Everyday Essential",
+    origin: "Milled fresh at Bharuch, Gujarat",
+    shortDesc: "Classic coriander-cumin blend — the base of everyday Gujarati cooking.",
+    fullDesc: "JP Dhaniya Jeera (Dhana-Jeeru) is a fresh-ground blend of coriander and cumin in the perfect ratio for daily shaak and dal. Citrusy dhaniya balanced with warm, nutty jeera — the one masala no Gujarati kitchen runs without. Available in 100g, 200g and 500g.",
+    category: "Powder", shelfLife: "12 Months", grade: "A Grade", variety: "Coriander + Cumin",
+    image: "images/jp-dhana-jeera.jpeg",
+    variants: [
+      { weight: "100gm", price: 50, image: "images/jp-dhana-jeera-100g.jpeg" },
+      { weight: "200gm", price: 100, image: "images/jp-dhana-jeera.jpeg" },
+      { weight: "500gm", price: 250, image: "images/jp-dhana-jeera-500g.jpeg" }
+    ],
     benefits: [
-      { icon: "🫁", title: "Breath Freshener", desc: "Natural mouth freshener" },
-      { icon: "💚", title: "Detoxifier", desc: "Helps cleanse the body" },
-      { icon: "😌", title: "Stress Relief", desc: "Calming aromatic properties" },
-      { icon: "🫀", title: "Blood Pressure", desc: "Helps regulate BP naturally" }
+      { icon: "🫁", title: "Digestion", desc: "Coriander & cumin ease digestion" },
+      { icon: "🩸", title: "Cholesterol", desc: "May support healthy cholesterol" },
+      { icon: "🧠", title: "Iron & Aroma", desc: "Warm, nutty everyday flavour" },
+      { icon: "👁️", title: "Rich in Vitamins", desc: "Source of beta-carotene & Vitamin A" }
     ]
   },
   {
-    id: 5, name: "Dhania Coriander Powder", price: 120, mrp: 145, weight: "200g",
-    image: "images/coriander.png", badge: "Essential",
-    origin: "Sourced from Kota, Rajasthan",
-    shortDesc: "Fresh, citrusy coriander powder — the backbone of Indian cooking.",
-    fullDesc: "Finely ground from premium Rajasthani Eagle variety coriander seeds. Our dhania powder has a fresh, citrusy aroma and slightly sweet flavor that forms the base of countless Indian recipes. Stone-ground to preserve essential oils.",
-    category: "Powder", shelfLife: "12 Months", variety: "Eagle", grade: "A Grade",
-    benefits: [
-      { icon: "🫁", title: "Digestion", desc: "Soothes digestive issues" },
-      { icon: "🩸", title: "Cholesterol", desc: "May help lower bad cholesterol" },
-      { icon: "✨", title: "Skin Care", desc: "Anti-fungal and anti-bacterial" },
-      { icon: "👁️", title: "Eye Health", desc: "Rich in beta-carotene and Vitamin A" }
-    ]
-  },
-  {
-    id: 6, name: "Malabar Black Pepper", price: 320, mrp: 380, weight: "100g",
-    image: "images/pepper.png", badge: "King of Spices",
-    origin: "Sourced from Wayanad, Kerala",
-    shortDesc: "Bold, pungent Malabar black peppercorns — the King of Spices.",
-    fullDesc: "Our Malabar black pepper comes from the tropical plantations of Wayanad. These large, bold peppercorns have an intense piperine kick and complex flavor. Sun-dried on the vine for maximum potency. Ideal for grinding fresh or using whole in recipes.",
-    category: "Whole Spice", shelfLife: "24 Months", piperine: "5-9%", grade: "Malabar Garbled",
-    benefits: [
-      { icon: "🔥", title: "Bioavailability", desc: "Enhances nutrient absorption" },
-      { icon: "🫁", title: "Respiratory", desc: "Helps clear congestion" },
-      { icon: "⚡", title: "Metabolism", desc: "Thermogenic fat burning" },
-      { icon: "🧠", title: "Brain Health", desc: "Piperine supports brain function" }
-    ]
-  },
-  {
-    id: 7, name: "Royal Garam Masala", price: 280, mrp: 330, weight: "100g",
-    image: "images/garam-masala.png", badge: "Signature Blend",
-    origin: "JP Masale's Secret Family Recipe",
-    shortDesc: "Our signature 12-spice blend for the perfect finishing touch.",
-    fullDesc: "A carefully balanced blend of 12 whole spices — cinnamon, cardamom, cloves, black pepper, bay leaves, nutmeg, mace, cumin, coriander, fennel, star anise, and dried ginger. Each spice is individually roasted before blending. This is our founder's family recipe passed down through generations.",
-    category: "Blend", shelfLife: "10 Months", ingredients: "12 Spices", grade: "Artisan Grade",
+    id: 5, name: "Garam Masala",
+    badge: "Signature Blend",
+    origin: "JP family recipe, Bharuch",
+    shortDesc: "Aromatic whole-spice garam masala for a warm, restaurant-style finish.",
+    fullDesc: "A balanced blend of roasted whole spices — cinnamon, cardamom, cloves, black pepper, bay leaf, cumin, coriander and more. Freshly ground for a deep, warming aroma that finishes any curry, biryani or shaak beautifully. Available in 100g, 200g and 500g.",
+    category: "Masala Blend", shelfLife: "10 Months", grade: "Artisan", ingredients: "12+ Spices",
+    image: "images/jp-garam-masala.jpeg",
+    variants: [
+      { weight: "100gm", price: 80, image: "images/jp-garam-masala-100g.jpeg" },
+      { weight: "200gm", price: 160, image: "images/jp-garam-masala-200g.jpeg" },
+      { weight: "500gm", price: 400, image: "images/jp-garam-masala-500g.jpeg" }
+    ],
     benefits: [
       { icon: "🔥", title: "Warming", desc: "Balances body temperature" },
       { icon: "🫁", title: "Digestion", desc: "Aids post-meal digestion" },
-      { icon: "🛡️", title: "Immunity", desc: "Blend of immune-boosting spices" },
-      { icon: "😋", title: "Flavor Depth", desc: "Adds complex layered flavors" }
+      { icon: "🛡️", title: "Immunity", desc: "Blend of immune-friendly spices" },
+      { icon: "😋", title: "Flavour Depth", desc: "Adds rich, layered aroma" }
     ]
   },
   {
-    id: 8, name: "Kashmiri Premium Saffron", price: 1200, mrp: 1450, weight: "1g",
-    image: "images/saffron.png", badge: "Luxury",
-    origin: "Sourced from Pampore, Kashmir",
-    shortDesc: "Pure Kashmiri Mongra saffron — the world's most precious spice.",
-    fullDesc: "Hand-harvested from the saffron fields of Pampore, Kashmir. Our Mongra grade saffron (ISO 3632 Category I) has the highest crocin content for intense color and flavor. Each gram requires 150+ flowers. Perfect for biryani, kheer, and kahwa.",
-    category: "Premium", shelfLife: "36 Months", grade: "Mongra (ISO 3632-I)", crocin: "250+",
+    id: 7, name: "Chaat Masala",
+    badge: "Tangy",
+    origin: "JP family recipe, Bharuch",
+    shortDesc: "Tangy, zesty chaat masala to sprinkle over fruits, salads and snacks.",
+    fullDesc: "A zingy blend of dried mango (amchur), black salt, cumin, black pepper and aromatic spices. Sprinkle over fruit, salad, chaat, raita, and street snacks for an instant tangy, mouth-watering kick.",
+    category: "Masala Blend", shelfLife: "12 Months", grade: "Tangy Blend", ingredients: "Amchur, Black Salt, Jeera…",
+    image: "images/jp-chaat-masala.jpeg",
+    variants: [
+      { weight: "50gm", price: 40, image: "images/jp-chaat-masala.jpeg" }
+    ],
     benefits: [
-      { icon: "😊", title: "Mood Booster", desc: "Natural anti-depressant" },
-      { icon: "👁️", title: "Vision", desc: "Protects retinal health" },
-      { icon: "✨", title: "Skin Glow", desc: "Traditional beauty ingredient" },
-      { icon: "🧠", title: "Memory", desc: "Enhances learning & memory" }
+      { icon: "🍋", title: "Tangy Kick", desc: "Amchur & black salt zing" },
+      { icon: "🥗", title: "Versatile", desc: "Fruits, salads, chaat & drinks" },
+      { icon: "🫁", title: "Digestive", desc: "Black salt aids digestion" },
+      { icon: "😋", title: "Instant Flavour", desc: "One sprinkle transforms a snack" }
+    ]
+  },
+  {
+    id: 8, name: "Kitchen King Masala",
+    badge: "All-in-One",
+    origin: "JP family recipe, Bharuch",
+    shortDesc: "All-in-one masala for rich, flavourful sabji and mixed-veg gravies.",
+    fullDesc: "The all-rounder blend for everyday vegetables and mixed-veg curries. Kitchen King brings a rich, well-rounded flavour to any shaak so you don't need a shelf full of masalas. 100% veg.",
+    category: "Masala Blend", shelfLife: "12 Months", grade: "All-Rounder", ingredients: "All-in-one blend",
+    image: "images/jp-kitchen-king.jpeg",
+    variants: [
+      { weight: "50gm", price: 40, image: "images/jp-kitchen-king.jpeg" }
+    ],
+    benefits: [
+      { icon: "👑", title: "One-for-All", desc: "Covers most everyday sabjis" },
+      { icon: "🥘", title: "Rich Gravy", desc: "Full-bodied, balanced taste" },
+      { icon: "🌿", title: "100% Veg Mix", desc: "Pure spice blend" },
+      { icon: "⏱️", title: "Saves Time", desc: "Fewer jars, faster cooking" }
+    ]
+  },
+  {
+    id: 9, name: "Kasuri Methi",
+    badge: "Aromatic Leaves",
+    origin: "Sun-dried fenugreek leaves, Bharuch",
+    shortDesc: "Fragrant sun-dried fenugreek leaves to finish dals, curries and parathas.",
+    fullDesc: "Premium sun-dried fenugreek (methi) leaves with a distinctive, slightly bitter aroma. Crush a pinch over dal, paneer curries, sabji and parathas to add that signature dhaba-style fragrance. 100% natural, no additives.",
+    category: "Kitchen Essential", shelfLife: "12 Months", grade: "Sun-dried", variety: "Fenugreek Leaves",
+    image: "images/jp-kasuri-methi.jpeg",
+    variants: [
+      { weight: "25gm", price: 30, image: "images/jp-kasuri-methi.jpeg" },
+      { weight: "100gm", price: 100, image: "images/jp-kasuri-methi-100g.jpeg" }
+    ],
+    benefits: [
+      { icon: "🌿", title: "Signature Aroma", desc: "Classic dhaba-style fragrance" },
+      { icon: "🫁", title: "Digestive", desc: "Traditionally eases digestion" },
+      { icon: "🩸", title: "Blood Sugar", desc: "Fenugreek supports sugar balance" },
+      { icon: "😋", title: "A Little Goes Far", desc: "One pinch lifts a whole dish" }
+    ]
+  },
+  {
+    id: 10, name: "Kashmiri Mirchi Box",
+    badge: "Deep Colour",
+    origin: "Milled fresh at Bharuch, Gujarat",
+    shortDesc: "Handy retail box of mild Kashmiri chilli for rich colour in every dish.",
+    fullDesc: "The same deep-red, mild Kashmiri chilli in a convenient sealed 50g carton — ideal for smaller kitchens and gifting. Adds glowing colour to gravies and tandoori dishes without harsh heat. Check seal before purchase.",
+    category: "Kitchen Essential", shelfLife: "12 Months", grade: "Premium", scoville: "Mild · Deep Colour",
+    image: "images/jp-kashmiri-mirchi-box.jpeg",
+    variants: [
+      { weight: "50gm", price: 60, image: "images/jp-kashmiri-mirchi-box.jpeg" }
+    ],
+    benefits: [
+      { icon: "🎨", title: "Natural Colour", desc: "Deep red, no artificial dye" },
+      { icon: "🌶️", title: "Mild Heat", desc: "Colour without overpowering spice" },
+      { icon: "📦", title: "Sealed Carton", desc: "Fresh, tamper-check pack" },
+      { icon: "🍗", title: "Great for Marinades", desc: "Tandoori & tikka favourite" }
+    ]
+  },
+  {
+    id: 11, name: "JP Hing (Asafoetida)",
+    badge: "New Launch",
+    origin: "Compounded & packed at Bharuch, Gujarat",
+    shortDesc: "Baat nis ki nahi, Hing ki hai! Pure, strong & potent for zordaar flavour.",
+    fullDesc: "New Launch! Baat nis ki nahi, Hing ki hai! Pure, strong and potent compounded asafoetida with ekdum asli zordaar flavour. Just a pinch lifts dal, sambar, rasam and shaak — swaad pe perfect rang jam jaayega! Hygienically packed at Bharuch.",
+    category: "Kitchen Essential", shelfLife: "18 Months", grade: "Premium Strong", variety: "Compounded Hing",
+    image: "images/jp-hing.jpeg",
+    variants: [
+      { weight: "50gm", price: 120, image: "images/jp-hing.jpeg" }
+    ],
+    benefits: [
+      { icon: "✨", title: "Rich Aroma", desc: "Intense, traditional tadka fragrance" },
+      { icon: "🫁", title: "Digestive Aid", desc: "Known for soothing bloating & gas" },
+      { icon: "🍲", title: "Umami Punch", desc: "Lifts flavour in onion/garlic-free dishes" },
+      { icon: "👌", title: "A Pinch is Enough", desc: "High potency, lasts longer" }
+    ]
+  },
+  {
+    id: 12, name: "Chai Masala (Tea Masala)",
+    badge: "Kadak Flavour",
+    origin: "JP family recipe, Bharuch",
+    shortDesc: "Aromatic blend of cardamom, dry ginger & cinnamon for royal masala tea.",
+    fullDesc: "JP Chai Masala turns everyday tea into a rich, royal experience. Specially crafted from roasted whole spices — fragrant green cardamom, sun-dried ginger (saunth), cinnamon, cloves, and black pepper. Just a pinch brewed into your tea infuses deep warmth, irresistible aroma, and an invigorating kick. 100% natural with no artificial flavours.",
+    category: "Masala Blend", shelfLife: "12 Months", grade: "Premium Aromatic", ingredients: "Cardamom, Dry Ginger, Cinnamon, Cloves, Pepper",
+    image: "images/jp-chai-masala.jpeg",
+    variants: [
+      { weight: "50gm", price: 80, image: "images/jp-chai-masala.jpeg" }
+    ],
+    benefits: [
+      { icon: "☕", title: "Kadak Chai", desc: "Transforms ordinary tea into fragrant masala chai" },
+      { icon: "🌿", title: "Cold & Cough Relief", desc: "Ginger & cinnamon help soothe throat & boost immunity" },
+      { icon: "🫁", title: "Digestion", desc: "Cardamom and warming spices aid digestion" },
+      { icon: "⚡", title: "Fresh Energy", desc: "Invigorating spice aroma to start your day" }
     ]
   }
 ];
 
+// Backwards compatibility convenience properties
+products.forEach(p => {
+  if (p.variants && p.variants.length) {
+    p.price = p.variants[0].price;
+    p.weight = p.variants[0].weight;
+  }
+});
+
 // Presentation metadata for the category tiles (image + blurb per category).
 const categoryMeta = {
-  "Powder":      { image: "images/turmeric.png",     blurb: "Stone-ground daily essentials" },
-  "Whole Spice": { image: "images/cumin.png",        blurb: "Cleaned, sorted & sun-dried" },
-  "Blend":       { image: "images/garam-masala.png", blurb: "Small-batch family recipes" },
-  "Premium":     { image: "images/saffron.png",      blurb: "Rare, hand-harvested luxuries" }
+  "Powder":            { image: "images/jp-turmeric.jpeg",      blurb: "Freshly milled daily essentials" },
+  "Masala Blend":      { image: "images/jp-garam-masala.jpeg",  blurb: "Ready blends & family recipes" },
+  "Kitchen Essential": { image: "images/jp-kasuri-methi.jpeg",  blurb: "The little extras every rasoi needs" }
 };
 
 // ===== FAQ CONTENT =====
@@ -213,7 +319,7 @@ const policies = {
     title: "Terms & Conditions",
     body: `
       <h3>About us</h3>
-      <p>JP Masale sells packaged Indian spices from Bharuch, Gujarat, India.</p>
+      <p>JP Masala sells packaged Indian spices from Bharuch, Gujarat, India.</p>
       <h3>Orders</h3>
       <p>Adding items to the cart and sending the WhatsApp message is a request to buy, not a completed sale. An order is confirmed only when we reply to confirm availability and the final amount including any shipping charge.</p>
       <h3>Pricing</h3>
@@ -229,11 +335,20 @@ const policies = {
 };
 
 // ===== STATE =====
+const selectedCardVariants = {};
+let currentModalProductId = null;
+let currentModalVidx = 0;
 let cart = loadCart();
 let modalQty = 1;
 let activeCategory = "All";
 let searchQuery = "";
 const focusStack = [];
+
+function getProductVariant(product, weight) {
+  if (!product || !product.variants || !product.variants.length) return null;
+  if (!weight) return product.variants[0];
+  return product.variants.find(v => v.weight === weight) || product.variants[0];
+}
 
 function loadCart() {
   // A corrupted localStorage entry used to throw here and kill the whole script.
@@ -242,7 +357,15 @@ function loadCart() {
     if (!Array.isArray(raw)) return [];
     return raw
       .filter(c => c && products.some(p => p.id === c.id))
-      .map(c => ({ id: c.id, qty: Math.max(1, parseInt(c.qty, 10) || 1) }));
+      .map(c => {
+        const p = products.find(prod => prod.id === c.id);
+        const v = getProductVariant(p, c.weight);
+        return {
+          id: c.id,
+          weight: v ? v.weight : (p.variants[0] ? p.variants[0].weight : "50gm"),
+          qty: Math.max(1, parseInt(c.qty, 10) || 1)
+        };
+      });
   } catch (err) {
     console.warn('Could not read saved cart, starting fresh.', err);
     return [];
@@ -398,6 +521,49 @@ function getFilteredProducts() {
   });
 }
 
+function selectCardVariant(pid, vidx) {
+  selectedCardVariants[pid] = vidx;
+  const p = products.find(x => x.id === pid);
+  if (!p) return;
+  const v = p.variants[vidx] || p.variants[0];
+  const card = $(`card-${pid}`);
+  if (!card) return;
+
+  card.dataset.selectedVidx = vidx;
+
+  // Update variant button classes
+  card.querySelectorAll('[data-var-pid]').forEach(btn => {
+    const isAct = Number(btn.dataset.varIdx) === vidx;
+    btn.classList.toggle('active', isAct);
+    btn.setAttribute('aria-pressed', String(isAct));
+  });
+
+  // Update image
+  const imgEl = $(`card-img-${pid}`);
+  if (imgEl && v.image) {
+    imgEl.src = v.image;
+  }
+
+  // Update price
+  const priceEl = $(`card-price-${pid}`);
+  if (priceEl) {
+    priceEl.innerHTML = `${formatINR(v.price)} <span class="card-weight-unit">/ ${esc(v.weight)}</span>`;
+  }
+
+  // Update discount badge
+  const discEl = $(`card-discount-${pid}`);
+  if (discEl) {
+    discEl.textContent = `10% OFF`;
+    discEl.style.display = '';
+  }
+
+  // Update add button aria-label
+  const addBtn = card.querySelector('.btn-add');
+  if (addBtn) {
+    addBtn.setAttribute('aria-label', `Add ${p.name} ${v.weight} to cart`);
+  }
+}
+
 function renderProducts() {
   const list = getFilteredProducts();
 
@@ -407,25 +573,44 @@ function renderProducts() {
     : 'No products match your search';
 
   $('productsGrid').innerHTML = list.map(p => {
-    const hasDeal = p.mrp && p.mrp > p.price;
-    const off = hasDeal ? Math.round((1 - p.price / p.mrp) * 100) : 0;
+    const vIndex = selectedCardVariants[p.id] || 0;
+    const v = p.variants[vIndex] || p.variants[0];
+    const currentImg = v.image || p.image;
+
+    const variantHtml = p.variants.length > 1
+      ? `<div class="card-variants" role="group" aria-label="Select pack size">
+          <span class="card-variants-label">Size:</span>
+          ${p.variants.map((vItem, idx) => `
+            <button class="var-btn ${idx === vIndex ? 'active' : ''}"
+              data-var-pid="${p.id}"
+              data-var-idx="${idx}"
+              type="button"
+              aria-pressed="${idx === vIndex}">
+              ${esc(vItem.weight)}
+            </button>
+          `).join('')}
+        </div>`
+      : `<div class="card-variants single">
+          <span class="var-badge">Pack: ${esc(v.weight)}</span>
+        </div>`;
+
     return `
-    <article class="product-card fade-up">
+    <article class="product-card fade-up" id="card-${p.id}" data-id="${p.id}" data-selected-vidx="${vIndex}">
       <div class="card-img-wrap">
-        <img src="${esc(p.image)}" alt="" class="card-img" loading="lazy" width="400" height="300">
+        <img src="${esc(currentImg)}" alt="${esc(p.name)}" class="card-img" id="card-img-${p.id}" loading="lazy" width="400" height="300">
         <span class="card-badge">${esc(p.badge)}</span>
-        ${hasDeal ? `<span class="card-discount">${off}% OFF</span>` : ''}
+        <span class="card-discount" id="card-discount-${p.id}">10% OFF</span>
       </div>
       <div class="card-body">
         <h3><button class="card-open" data-id="${p.id}">${esc(p.name)}</button></h3>
         <p class="card-cat">${esc(p.category)}</p>
         <p class="card-desc">${esc(p.shortDesc)}</p>
+        ${variantHtml}
         <div class="card-footer">
-          <div class="card-price">
-            ${formatINR(p.price)} <span>/ ${esc(p.weight)}</span>
-            ${hasDeal ? `<span class="card-mrp">M.R.P. ${formatINR(p.mrp)}</span>` : ''}
+          <div class="card-price" id="card-price-${p.id}">
+            ${formatINR(v.price)} <span class="card-weight-unit">/ ${esc(v.weight)}</span>
           </div>
-          <button class="btn-add" data-add="${p.id}" aria-label="Add ${esc(p.name)} to cart">Add to Cart</button>
+          <button class="btn-add" data-add="${p.id}" aria-label="Add ${esc(p.name)} ${esc(v.weight)} to cart">Add to Cart</button>
         </div>
       </div>
     </article>`;
@@ -436,10 +621,30 @@ function renderProducts() {
 
 // Event delegation — cards are re-rendered on every filter/search change.
 $('productsGrid').addEventListener('click', e => {
+  const varBtn = e.target.closest('[data-var-pid]');
+  if (varBtn) {
+    e.stopPropagation();
+    const pid = Number(varBtn.dataset.varPid);
+    const vidx = Number(varBtn.dataset.varIdx);
+    selectCardVariant(pid, vidx);
+    return;
+  }
   const addBtn = e.target.closest('[data-add]');
-  if (addBtn) { addToCart(Number(addBtn.dataset.add)); return; }
+  if (addBtn) {
+    const pid = Number(addBtn.dataset.add);
+    const p = products.find(x => x.id === pid);
+    if (!p) return;
+    const vidx = selectedCardVariants[pid] || 0;
+    const v = p.variants[vidx] || p.variants[0];
+    addToCart(pid, v.weight, 1);
+    return;
+  }
   const openBtn = e.target.closest('[data-id]');
-  if (openBtn) openProductModal(Number(openBtn.dataset.id));
+  if (openBtn) {
+    const pid = Number(openBtn.dataset.id);
+    const vidx = selectedCardVariants[pid] || 0;
+    openProductModal(pid, vidx);
+  }
 });
 
 // ===== SEARCH =====
@@ -532,17 +737,19 @@ function renderFaqs() {
 }
 
 // ===== PRODUCT DETAIL MODAL =====
-function openProductModal(id) {
+function openProductModal(id, initialVidx = null) {
   const p = products.find(x => x.id === id);
   if (!p) return;
+  currentModalProductId = id;
+  currentModalVidx = initialVidx !== null ? initialVidx : (selectedCardVariants[id] || 0);
   modalQty = 1;
-  $('modalImg').src = p.image;
+
   $('modalTitle').textContent = p.name;
   $('modalOrigin').textContent = p.origin;
   $('modalDesc').textContent = p.fullDesc;
-  $('modalPrice').innerHTML = `${formatINR(p.price)} <span>/ ${esc(p.weight)}</span>` +
-    (p.mrp && p.mrp > p.price ? ` <del>${formatINR(p.mrp)}</del>` : '');
   $('qtyValue').textContent = '1';
+
+  renderModalVariantUI(p);
 
   const metaKeys = ['category','shelfLife','grade','curcumin','scoville','variety','piperine','ingredients','crocin','size'];
   const labels = { category:'Type', shelfLife:'Shelf Life', grade:'Grade', curcumin:'Curcumin', scoville:'Heat Level', variety:'Variety', piperine:'Piperine', ingredients:'Ingredients', crocin:'Crocin', size:'Size' };
@@ -557,7 +764,12 @@ function openProductModal(id) {
 
   renderRelated(p);
 
-  $('modalAddCart').onclick = () => { addToCart(id, modalQty); closeProductModal(); };
+  $('modalAddCart').onclick = () => {
+    const v = p.variants[currentModalVidx] || p.variants[0];
+    addToCart(id, v.weight, modalQty);
+    closeProductModal();
+  };
+
   // Re-entrant: opening a related product from inside the modal must not stack overlays.
   if ($('productModal').classList.contains('active')) {
     $('modalClose').focus();
@@ -567,20 +779,69 @@ function openProductModal(id) {
   }
 }
 
+function renderModalVariantUI(p) {
+  const v = p.variants[currentModalVidx] || p.variants[0];
+  $('modalImg').src = v.image || p.image;
+  $('modalPrice').innerHTML = `${formatINR(v.price)} <span>/ ${esc(v.weight)}</span> <span class="modal-discount-tag">10% OFF</span>`;
+
+  const varContainer = $('modalVariants');
+  if (varContainer) {
+    if (p.variants.length > 1) {
+      varContainer.innerHTML = `
+        <span class="modal-var-label">Select Pack Size:</span>
+        <div class="modal-var-pills">
+          ${p.variants.map((vItem, idx) => `
+            <button class="modal-var-btn ${idx === currentModalVidx ? 'active' : ''}"
+              data-modal-vidx="${idx}"
+              type="button">
+              <span class="mv-weight">${esc(vItem.weight)}</span>
+              <span class="mv-price">${formatINR(vItem.price)}</span>
+            </button>
+          `).join('')}
+        </div>
+      `;
+    } else {
+      varContainer.innerHTML = `
+        <div class="card-variants single">
+          <span class="var-badge">Pack Size: ${esc(v.weight)}</span>
+        </div>
+      `;
+    }
+  }
+}
+
+const modalVarContainer = $('modalVariants');
+if (modalVarContainer) {
+  modalVarContainer.addEventListener('click', e => {
+    const btn = e.target.closest('[data-modal-vidx]');
+    if (!btn) return;
+    const vidx = Number(btn.dataset.modalVidx);
+    currentModalVidx = vidx;
+    if (currentModalProductId) {
+      selectCardVariant(currentModalProductId, vidx);
+      const p = products.find(x => x.id === currentModalProductId);
+      if (p) renderModalVariantUI(p);
+    }
+  });
+}
+
 function renderRelated(current) {
   let related = products.filter(p => p.id !== current.id && p.category === current.category);
   if (related.length === 0) related = products.filter(p => p.id !== current.id);
   related = related.slice(0, 3);
 
   $('modalRelated').hidden = related.length === 0;
-  $('relatedGrid').innerHTML = related.map(p => `
+  $('relatedGrid').innerHTML = related.map(p => {
+    const v = p.variants[0];
+    return `
     <button class="related-card" data-related="${p.id}">
-      <img src="${esc(p.image)}" alt="" loading="lazy" width="120" height="90">
+      <img src="${esc(v.image || p.image)}" alt="" loading="lazy" width="120" height="90">
       <div class="rc-body">
         <h4>${esc(p.name)}</h4>
-        <span>${formatINR(p.price)}</span>
+        <span>from ${formatINR(v.price)}</span>
       </div>
-    </button>`).join('');
+    </button>`;
+  }).join('');
 }
 
 $('relatedGrid').addEventListener('click', e => {
@@ -596,34 +857,36 @@ $('qtyPlus').addEventListener('click', () => { modalQty++; $('qtyValue').textCon
 $('qtyMinus').addEventListener('click', () => { if (modalQty > 1) { modalQty--; $('qtyValue').textContent = modalQty; } });
 
 // ===== CART =====
-function addToCart(id, qty = 1) {
+function addToCart(id, weight = null, qty = 1) {
   const p = products.find(x => x.id === id);
   if (!p) return;
-  const existing = cart.find(c => c.id === id);
+  const v = getProductVariant(p, weight);
+  const vWeight = v.weight;
+  const existing = cart.find(c => c.id === id && c.weight === vWeight);
   if (existing) existing.qty += qty;
-  else cart.push({ id, qty });
+  else cart.push({ id, weight: vWeight, qty });
   saveCart();
   updateCartUI();
   bumpCartIcon();
-  showToast(`${p.name} added to cart`);
+  showToast(`${p.name} (${vWeight}) added to cart`);
 }
 
-function removeFromCart(id) {
-  cart = cart.filter(c => c.id !== id);
+function removeFromCart(id, weight) {
+  cart = cart.filter(c => !(c.id === id && c.weight === weight));
   saveCart(); updateCartUI(); renderCartItems();
   // The button that was just pressed no longer exists.
   const next = $('cartItems').querySelector('.remove-item') || $('cartClose');
   if ($('cartSidebar').classList.contains('open') && next) next.focus();
 }
 
-function updateQty(id, delta) {
-  const item = cart.find(c => c.id === id);
+function updateQty(id, weight, delta) {
+  const item = cart.find(c => c.id === id && c.weight === weight);
   if (!item) return;
   item.qty += delta;
-  if (item.qty <= 0) { removeFromCart(id); return; }
+  if (item.qty <= 0) { removeFromCart(id, weight); return; }
   saveCart(); updateCartUI(); renderCartItems();
   // Re-render destroyed the stepper — restore focus to the same button.
-  const btn = $('cartItems').querySelector(`[data-qty="${id}"][data-delta="${delta}"]`);
+  const btn = $('cartItems').querySelector(`[data-qty="${id}"][data-weight="${CSS.escape(weight)}"][data-delta="${delta}"]`);
   if (btn) btn.focus();
 }
 
@@ -632,7 +895,9 @@ function getCartCount() { return cart.reduce((s, c) => s + c.qty, 0); }
 function getCartTotal() {
   return cart.reduce((s, c) => {
     const p = products.find(x => x.id === c.id);
-    return s + (p ? p.price * c.qty : 0);
+    if (!p) return s;
+    const v = getProductVariant(p, c.weight);
+    return s + (v ? v.price * c.qty : 0);
   }, 0);
 }
 
@@ -666,28 +931,31 @@ function renderCartItems() {
   container.innerHTML = cart.map(c => {
     const p = products.find(x => x.id === c.id);
     if (!p) return '';
+    const v = getProductVariant(p, c.weight);
+    const itemImg = v.image || p.image;
     return `
       <div class="cart-item">
-        <img src="${esc(p.image)}" alt="" loading="lazy">
+        <img src="${esc(itemImg)}" alt="" loading="lazy">
         <div class="cart-item-info">
           <h4>${esc(p.name)}</h4>
-          <div class="ci-price">${formatINR(p.price * c.qty)}</div>
+          <span class="ci-weight">${esc(v.weight)}</span>
+          <div class="ci-price">${formatINR(v.price * c.qty)} <small style="color:var(--text-muted);font-weight:400;">(${formatINR(v.price)} each)</small></div>
           <div class="cart-item-actions">
-            <button data-qty="${p.id}" data-delta="-1" aria-label="Decrease quantity of ${esc(p.name)}">−</button>
+            <button data-qty="${p.id}" data-weight="${esc(v.weight)}" data-delta="-1" aria-label="Decrease quantity of ${esc(p.name)} ${esc(v.weight)}">−</button>
             <span aria-live="polite">${c.qty}</span>
-            <button data-qty="${p.id}" data-delta="1" aria-label="Increase quantity of ${esc(p.name)}">+</button>
+            <button data-qty="${p.id}" data-weight="${esc(v.weight)}" data-delta="1" aria-label="Increase quantity of ${esc(p.name)} ${esc(v.weight)}">+</button>
           </div>
         </div>
-        <button class="remove-item" data-remove="${p.id}" aria-label="Remove ${esc(p.name)} from cart">✕</button>
+        <button class="remove-item" data-remove="${p.id}" data-weight="${esc(v.weight)}" aria-label="Remove ${esc(p.name)} ${esc(v.weight)} from cart">✕</button>
       </div>`;
   }).join('');
 }
 
 $('cartItems').addEventListener('click', e => {
   const qtyBtn = e.target.closest('[data-qty]');
-  if (qtyBtn) { updateQty(Number(qtyBtn.dataset.qty), Number(qtyBtn.dataset.delta)); return; }
+  if (qtyBtn) { updateQty(Number(qtyBtn.dataset.qty), qtyBtn.dataset.weight, Number(qtyBtn.dataset.delta)); return; }
   const rmBtn = e.target.closest('[data-remove]');
-  if (rmBtn) removeFromCart(Number(rmBtn.dataset.remove));
+  if (rmBtn) removeFromCart(Number(rmBtn.dataset.remove), rmBtn.dataset.weight);
 });
 
 function bumpCartIcon() {
@@ -745,7 +1013,10 @@ function openOrderModal() {
   let html = '<h4>Order Summary</h4>';
   cart.forEach(c => {
     const p = products.find(x => x.id === c.id);
-    if (p) html += `<div class="os-item"><span>${esc(p.name)} × ${c.qty}</span><span>${formatINR(p.price * c.qty)}</span></div>`;
+    if (p) {
+      const v = getProductVariant(p, c.weight);
+      html += `<div class="os-item"><span>${esc(p.name)} (${esc(v.weight)}) × ${c.qty}</span><span>${formatINR(v.price * c.qty)}</span></div>`;
+    }
   });
   html += `<div class="os-total"><span>Total</span><span>${formatINR(getCartTotal())}</span></div>`;
   $('orderSummary').innerHTML = html;
@@ -825,7 +1096,7 @@ Object.keys(validators).forEach(id => {
 
 // ===== WHATSAPP MESSAGE =====
 function buildWhatsAppMessage(customerDetails = null) {
-  let msg = `🌿 *NEW ORDER - JP MASALE* 🌿\n`;
+  let msg = `🌿 *NEW ORDER - JP MASALA* 🌿\n`;
   msg += `=============================\n\n`;
 
   if (customerDetails) {
@@ -844,9 +1115,11 @@ function buildWhatsAppMessage(customerDetails = null) {
   cart.forEach((c, i) => {
     const p = products.find(x => x.id === c.id);
     if (p) {
+      const v = getProductVariant(p, c.weight);
       msg += `\n${i + 1}. *${p.name}*\n`;
-      msg += `   ▫️ Qty: ${c.qty} (${p.weight})\n`;
-      msg += `   ▫️ Price: ₹${p.price * c.qty} (₹${p.price} each)\n`;
+      msg += `   ▫️ Pack Size: ${v.weight}\n`;
+      msg += `   ▫️ Qty: ${c.qty}\n`;
+      msg += `   ▫️ Price: ₹${v.price * c.qty} (₹${v.price} each)\n`;
     }
   });
 
@@ -970,10 +1243,12 @@ function observeFadeUps() {
 
 // ===== WHATSAPP ENTRY POINTS =====
 function initWhatsAppLinks() {
-  $('waFloat').href = waLink("Hi JP Masale! I have a question about your spices.");
+  $('waFloat').href = waLink("Hi JP Masala! I have a question about your spices.");
   $('wholesaleBtn').href = waLink(
-    "Hi JP Masale! I'd like wholesale/bulk pricing.\n\nBusiness name:\nProducts & quantities:\nCity:"
+    "Hi JP Masala! I'd like wholesale/bulk pricing.\n\nBusiness name:\nProducts & quantities:\nCity:"
   );
+  const ann = $('annNotifyBtn');
+  if (ann) ann.href = waLink("Hi JP! Please notify me when JP ANN Atta launches. 🌾");
 }
 
 // ===== SEO: STRUCTURED DATA =====
@@ -985,7 +1260,7 @@ function injectSchema() {
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "JP Masale Spice Collection",
+    "name": "JP Masala Spice Collection",
     "itemListElement": products.map((p, i) => ({
       "@type": "ListItem",
       "position": i + 1,
@@ -995,14 +1270,14 @@ function injectSchema() {
         "description": p.shortDesc,
         "image": dir + p.image,
         "category": p.category,
-        "brand": { "@type": "Brand", "name": "JP Masale" },
-        "weight": p.weight,
-        "offers": {
+        "brand": { "@type": "Brand", "name": "JP Masala" },
+        "offers": p.variants.map(v => ({
           "@type": "Offer",
-          "price": p.price,
+          "name": `${p.name} - ${v.weight}`,
+          "price": v.price,
           "priceCurrency": "INR",
           "availability": "https://schema.org/InStock"
-        }
+        }))
       }
     }))
   };
